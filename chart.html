@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #555;
+        }
+        .seg-chart-dot{
+            position: absolute;
+            border-radius: 999px;
+            transform: translate(-50%,-50%);
+            transition: all .3s ease;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .seg-chart-wrapper{
+            width: fit-content;
+            height: fit-content;
+            position: relative;
+        }
+        .info-box-wrapper{
+            position: absolute;
+            height: 100%;
+            top: 0;
+            cursor: pointer;
+            transform: translate(50%,0);
+        }
+        .seg-chart-info-box{
+            position: absolute;
+            transition: all .1s linear;
+            display: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+        .seg-chart-info-box-price,.seg-chart-info-box-old-price{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap:4px;
+            white-space: nowrap;
+            text-align: left;
+            padding: 4px 10px;
+        }
+        .seg-chart-dot-current-value{
+            position: absolute;
+            border-right: 1px dashed;
+            border-top: 1px dashed;
+        }
+        .dashed-line-x,.dashed-line-y{
+            border: 1px dashed #000;
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+        .seg-switch{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 99px;
+            overflow: hidden;
+            background-color: transparent;
+            z-index: 3;
+        }
+        .seg-switch-item{
+            padding: 12px 18px;
+            user-select: none;
+            transition: all .2s linear;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .seg-switch-item:not(.seg-selected-switch){
+            cursor: pointer;
+        }
+        .seg-chart-info-box-date{
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 4px 10px;
+        }
+        .price-color,.old-price-color{
+            width: 10px;
+            height: 10px;
+            border-radius: 99px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="seg-chart-wrapper">
+        <div class="seg-switch">
+            <div data-priceRange = 'm' class="seg-switch-item seg-switch-monthly seg-selected-switch">
+                
+            </div>
+            <div data-priceRange = 'y' class="seg-switch-item seg-switch-yearly seg-none-selected-switch">
+                
+            </div>
+        </div>
+    </div>
+    <script src="./chart_1.js"></script>
+</body>
+</html>
